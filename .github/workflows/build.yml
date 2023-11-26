@@ -10,7 +10,8 @@ jobs:
           lfs: true
           submodules: recursive
       - uses: cyberjunk/gha-ubuntu-cross@v2
-        with: arm64
+        with:
+          arch: arm64
       - uses: turtlebrowser/get-conan@main
       - uses: symbitic/install-cmake@master
       - run: |
