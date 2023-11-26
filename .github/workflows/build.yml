@@ -9,7 +9,7 @@ jobs:
           fetch-tags: true
           lfs: true
           submodules: recursive
-      - uses: cyberjunk/gha-ubuntu-cross@v2
+      - uses: cyberjunk/gha-ubuntu-cross@v4
         with:
           arch: arm64
       - uses: turtlebrowser/get-conan@main
