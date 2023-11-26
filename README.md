@@ -1,2 +1,4 @@
 # bus-display
-LED matrix display for Port Authority transit buses
+Extensible transit LED matrix display framework
+
+**This is still in active development and does not work yet!!**
