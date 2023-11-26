@@ -13,7 +13,9 @@ jobs:
         with:
           arch: arm64
       - uses: turtlebrowser/get-conan@main
-      - uses: symbitic/install-cmake@master
+      - uses: lukka/get-cmake@latest
+        with:
+          cmakeVersion: '>=3.25.0'
       - run: |
           mkdir output
           cd output
