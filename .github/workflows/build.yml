@@ -1,0 +1,24 @@
+name: build
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-tags: true
+          lfs: true
+          submodules: recursive
+      - uses: cyberjunk/gha-ubuntu-cross@v2
+        with: arm64
+      - uses: turtlebrowser/get-conan@main
+      - uses: symbitic/install-cmake@master
+      - run: |
+          mkdir output
+          cd output
+          cmake ..
+          ninja
+      - uses: actions/upload-artifact@v3
+        with:
+          name: binary
+          path: transitclock
