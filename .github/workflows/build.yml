@@ -16,7 +16,12 @@ jobs:
       - uses: lukka/get-cmake@latest
         with:
           cmakeVersion: '>=3.25.0'
-      - run: |
+      - name: Set up Conan profile
+        run: CC=aarch64-linux-gnu-gcc CXX=aarch64-linux-gnu-g++ conan profile new default --detect
+      - name: Install Conan packages
+        run: conan install .
+      - name: Build
+        run: |
           mkdir output
           cd output
           cmake ..
@@ -24,4 +29,4 @@ jobs:
       - uses: actions/upload-artifact@v3
         with:
           name: binary
-          path: transitclock
+          path: output/transitclock
